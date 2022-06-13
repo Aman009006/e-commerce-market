@@ -11,6 +11,7 @@ import HeaderMobileElectronic from '~/components/shared/headers/HeaderMobileElec
 import FooterSecond from '~/components/shared/footers/FooterSecond';
 import axios from 'axios';
 import { config } from '~/config';
+import ShopBanner from '~/components/partials/shop/ShopBanner';
 
 const HomeElectronicsPage = () => {
     const [category, setCategor] = useState();
@@ -109,7 +110,9 @@ const HomeElectronicsPage = () => {
     return (
         <PageContainer title="Technics.kg">
             <main id="homepage-7">
-                <ElectronicBanner />
+                <div className="container mt-25 mb-25">
+                <ShopBanner />
+                </div>
                 <ElectronicTopCategories category={category} />
                 {/* <ProductGroupDealOfDay
                     categorySlug="computers-and-technologies"

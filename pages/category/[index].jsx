@@ -76,7 +76,7 @@ const ShopDefaultPage = () => {
                 <BreadCrumb breacrumb={breadCrumb} layout="fullwidth" />
                 <div className="ps-container">
                     <ShopBanner />
-                    <ShopBrands />
+                    {/* <ShopBrands /> */}
                     <div className="acc__content categoty__page">
                         {podProd?.map((c) => {
                             return (
