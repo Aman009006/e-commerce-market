@@ -25,7 +25,7 @@ const ProductDetailFullwidth = ({ product }) => {
                 </div>
             </div>
             <DefaultDescription product={product} />
-           { product.similarProducts?.lenght < 0 && <ElectronicProductGroupWithCarousel
+           { product.similarProducts && <ElectronicProductGroupWithCarousel
                     categorySlug="consumer-electrics"
                     title="Похожие товары"
                     links={product.similarProducts}

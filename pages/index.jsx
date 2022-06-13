@@ -105,12 +105,7 @@ const HomeElectronicsPage = () => {
                 console.log(error);
             });
     }, []);
-    // console.warn=()=>{}
-    // console.error=()=>{}
-    // const windowInnerWidth = window.innerWidth
-    // console.log(windowInnerWidth);
-
-// console.log(cards);
+   
     return (
         <PageContainer title="Technics.kg">
             <main id="homepage-7">

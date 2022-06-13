@@ -7,6 +7,7 @@ import Newsletters from '~/components/partials/commons/Newletters';
 import useGetProducts from '~/hooks/useGetProducts';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import { config } from '~/config';
 
 const SearchPage = () => {
     const [pageSize] = useState(100);
@@ -15,21 +16,23 @@ const SearchPage = () => {
     const Router = useRouter();
     const { query } = Router;
     const [cards, setCards] = useState('');
-    const [countCard,setCountCard]=useState(30)
+    const [countCard, setCountCard] = useState(30);
+    const [fromPrice, setFromPrice] = useState(1);
+    const [toPrice, setToPrice] = useState(100000);
+    const [primTo, setPrimTo] = useState(true);
 
     const { asPath } = useRouter();
 
     let searchWord = asPath.replace(/^.{8}/, '');
 
-    
     useEffect(() => {
         const headers = {
-            'api-token': 'f1cdecbeba8f4a1547d3dc0db9376fec',
+            'api-token': config.apiToken,
         };
 
         axios
             .get(
-                `https://docs.stores.kg/api/products?page=1&itemsPerPage=${countCard}&name=${searchWord}`,
+                `${config.mainUrl}products?page=1&itemsPerPage=${countCard}&name=${searchWord}&price%5Bgte%5D=${fromPrice}&price%5Blte%5D=${toPrice}`,
                 {
                     headers: headers,
                 }
@@ -40,7 +43,10 @@ const SearchPage = () => {
             .catch((error) => {
                 console.log(error);
             });
-    }, [searchWord,countCard]);
+    }, [searchWord, countCard, primTo]);
+
+
+
 
     const breadcrumb = [
         {
@@ -78,13 +84,13 @@ const SearchPage = () => {
                     </p>
                 );
             } else {
-                shopItemsView = <p>No product(s) found.</p>;
+                shopItemsView = <p>Продуктов не найденно</p>;
             }
         } else {
-            shopItemsView = <p>No product(s) found.</p>;
+            shopItemsView = <p>Продуктов не найденно</p>;
         }
     } else {
-        statusView = <p>Searching...</p>;
+        statusView = <p>Поиск...</p>;
     }
 
     return (
@@ -101,15 +107,23 @@ const SearchPage = () => {
                                 <strong>{decodeURI(searchWord)}</strong>"
                             </h1>
                         </div>
-                        <div className='alotprice'>
-                        от: <input type="number" /> до: <input type="number" /> <button>применить</button>
+                        <div className="alotprice">
+                            от: <input id="input__before" onChange={(e)=> setFromPrice(e.target.value)} type="number" /> до:{' '}
+                            <input onChange={(e)=> setToPrice(e.target.value)} id="input__after" type="number" />{' '}
+                            <button onClick={() => setPrimTo(!primTo)}>
+                                применить
+                            </button>
                         </div>
                         <div className="ps-shop__content">
                             {/* {statusView} */}
                             {shopItemsView}
                         </div>
                         <div className="count__btn_plus">
-                           <button className='onenore__btn' onClick={()=>setCountCard(countCard+17)}>Показать еще</button>
+                            <button
+                                className="onenore__btn"
+                                onClick={() => setCountCard(countCard + 17)}>
+                                Показать еще
+                            </button>
                         </div>
                     </div>
                 </div>

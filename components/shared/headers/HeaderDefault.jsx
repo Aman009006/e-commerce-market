@@ -20,7 +20,7 @@ const HeaderDefault = () => {
             id="headerSticky">
             <div className="header__top">
                 <div className="ps-container">
-                   <div className="header__left">
+                   <div className="header__leftt">
                         <Logo />
                     </div>
                     <div className="header__center">

@@ -1,40 +1,99 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { config } from '~/config';
+import axios from 'axios';
 
-const PartialSpecification = () => (
-    <div className="table-responsive">
-        <table className="table table-bordered ps-table ps-table--specification">
-            <tbody>
-                <tr>
-                    <td>Color</td>
-                    <td>Black, Gray</td>
-                </tr>
-                <tr>
-                    <td>Style</td>
-                    <td>Ear Hook</td>
-                </tr>
-                <tr>
-                    <td>Wireless</td>
-                    <td>Yes</td>
-                </tr>
-                <tr>
-                    <td>Dimensions</td>
-                    <td>5.5 x 5.5 x 9.5 inches</td>
-                </tr>
-                <tr>
-                    <td>Weight</td>
-                    <td>6.61 pounds</td>
-                </tr>
-                <tr>
-                    <td>Battery Life</td>
-                    <td>20 hours</td>
-                </tr>
-                <tr>
-                    <td>Bluetooth</td>
-                    <td>Yes</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-);
+const PartialSpecification = ({ product }) => {
 
+    const [comments, setComments] = useState();
+    const [inputValueComm, setInputValueComm] = useState();
+
+
+
+    useEffect(() => {
+        const headers = {
+            'api-token': config.apiToken,
+        };
+
+        axios
+            .get(
+                `${config.mainUrl}reviews?page=1&itemsPerPage=30&product.id=${product.id}`,
+                {
+                    headers: headers,
+                }
+            )
+            .then((response) => {
+                setComments(response?.data['hydra:member']);
+                console.log(response?.data['hydra:member']);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
+
+    function sendComment(){
+        let authToken = localStorage.getItem('authToken')
+        // if(authToken === null){
+        //     setShow(true)
+        // }
+        console.log(product.id);
+        const options = {
+            url: `${config.mainUrl}review'`,
+            method: 'POST',
+            headers: {
+                'api-token': config.apiToken,
+                'user-token': authToken
+            },
+            data: {
+                    "productId": Number(product.id),
+                    "parentReviewId": 0,
+                    "comment": "Класс Удобно",
+                    "positiveComment": "Очень удобно в использовании",
+                    "negativeComment": "Дорогой товар",
+                    "rating": 5
+            },
+        };
+
+        axios(options)
+            .then((response) => {
+                console.log(response.status);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
+    }
+    console.log(comments);
+
+    return (
+        <div className="comment__content">
+            <div className={`${comments?.length > 0 ? "all__comments" : "none"}`}>
+                {comments ? (
+                    comments.map((comment) => {
+                        return (
+                            <div className="table-responsive">
+                                <div className="comment__block">
+                                    <div className="comment__user">
+                                        {comment.userPublicName}
+                                    </div>
+                                    <div className="comment">
+                                        {comment.comment}
+                                    </div>
+                                    <div className="date__comment">
+                                        {comment.createAt}
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })
+                ) : (
+                    <div>Комментарии отсутствуют</div>
+                )}
+            </div>
+            <div className="comment__sender">
+                <input placeholder='Оставь отзыв здесь' onChange={(e)=>setInputValueComm(e.target.value)} type="text" />
+                <button onClick={()=>sendComment()}>Отправить</button>
+            </div>
+        </div>
+    );
+};
 export default PartialSpecification;

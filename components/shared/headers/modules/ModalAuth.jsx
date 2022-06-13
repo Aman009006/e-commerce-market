@@ -37,32 +37,6 @@ const ModalAuth = ({ show, setShow }) => {
 
     function sendSmsCodeAuth() {
         const options = {
-            url: `${config.mainUrl}sms/check/code`,
-            method: 'POST',
-            headers: {
-                'api-token': config.apiToken,
-            },
-            data: {
-                "sessionId": statusNumber?.data.sessionId,
-                "code": Number(smsCode),
-            },
-        };
-
-        axios(options)
-            .then((response) => {
-                if (response?.status === 200) {
-                    authPerson();
-                }
-                setResSmsCode(response);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-        
-    }
-
-    function authPerson() {
-        const options = {
             url: `${config.mainUrl}user/auth`,
             method: 'POST',
             headers: {
@@ -90,8 +64,6 @@ const ModalAuth = ({ show, setShow }) => {
                 console.log(err);
             });
         handleClose();
-        
-      
     }
 
     return (

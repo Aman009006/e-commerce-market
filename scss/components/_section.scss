@@ -2270,3 +2270,69 @@
         }
     }
 }
+.wish__tr{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px !important;
+    width: 100% !important;
+    margin: 0;
+}
+.al{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .ps-btn{
+        margin-right: 20px;
+        padding: 15px 25px;
+    }
+}
+.w120{
+    max-width: 1200px !important;
+    width: 100% !important;
+}
+.imsort{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: black;
+}
+.alotprice{
+    margin-bottom: 40px;
+}
+.comment__block{
+    border: 1px solid #06c;
+    border-radius: 40px;
+    padding: 10px 30px;
+    margin-bottom: 15px;
+    .date__comment{
+        text-align: end;
+    }
+}
+.all__comments{
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.comment__sender{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    border: 1px solid #06c;
+    border-radius: 40px;
+    padding: 10px;
+    input{
+        border: none;
+        max-width: 1200px;
+        width: 100%;
+    }
+    button{
+        border: none;
+        background: none;
+    }
+}
+.none{
+    display: none;
+}
