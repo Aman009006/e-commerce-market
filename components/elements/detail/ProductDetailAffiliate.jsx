@@ -23,10 +23,10 @@ const ProductDetailAffiliate = ({ product }) => {
                             Purchase on Amazon
                         </a>
                         <div className="ps-product__actions">
-                            <a href="#">
+                            <a className='prod__icon'  href="#">
                                 <i className="icon-heart"></i>
                             </a>
-                            <a href="#">
+                            <a className='prod__icon' href="#">
                                 <i className="icon-chart-bars"></i>
                             </a>
                         </div>

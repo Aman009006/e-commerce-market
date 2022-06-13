@@ -28,12 +28,10 @@
 .category__content {
     margin: 0;
     border: 1px solid #4bc3e8;
-    width: 390px;
+    width: 240px;
+    height: 180px;
     border-radius: 15px;
     padding: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     margin: 5px;
     a {
         color: black;
@@ -54,12 +52,15 @@
 .acc__content {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 .ps-top-categories {
     margin-bottom: 25px;
 }
 .category__text {
     margin: 0;
+    text-align: center;
+    margin-top: 10px;
 }
 .categoty__page {
     margin-bottom: 25px;

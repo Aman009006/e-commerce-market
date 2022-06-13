@@ -138,7 +138,6 @@
     }
 }
 
-
 .ps-newsletter {
     padding: 65px 0;
     border-top: 1px solid #e1e1e1;
@@ -1753,7 +1752,7 @@
     grid-gap: 15px;
     grid-template-columns: repeat(
         4,
-                    minmax(200px, 1fr)
+        minmax(200px, 1fr)
     ); /* [2] Make columns adjust according to the available viewport */
     grid-auto-rows: 100%;
 
@@ -2270,7 +2269,7 @@
         }
     }
 }
-.wish__tr{
+.wish__tr {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -2278,44 +2277,44 @@
     width: 100% !important;
     margin: 0;
 }
-.al{
+.al {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    .ps-btn{
+    .ps-btn {
         margin-right: 20px;
         padding: 15px 25px;
     }
 }
-.w120{
+.w120 {
     max-width: 1200px !important;
     width: 100% !important;
 }
-.imsort{
+.imsort {
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
     color: black;
 }
-.alotprice{
+.alotprice {
     margin-bottom: 40px;
 }
-.comment__block{
+.comment__block {
     border: 1px solid #06c;
     border-radius: 40px;
     padding: 10px 30px;
     margin-bottom: 15px;
-    .date__comment{
+    .date__comment {
         text-align: end;
     }
 }
-.all__comments{
+.all__comments {
     height: 300px;
     overflow-x: hidden;
     overflow-y: scroll;
 }
-.comment__sender{
+.comment__sender {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2323,19 +2322,33 @@
     border: 1px solid #06c;
     border-radius: 40px;
     padding: 10px;
-    input{
+    input {
         border: none;
         max-width: 1200px;
         width: 100%;
     }
-    button{
+    button {
         border: none;
         background: none;
     }
 }
-.none{
+.none {
     display: none;
 }
-.mb-25{
+.mb-25 {
     margin-bottom: 30px;
+}
+.category__img_ {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.prod__icon{
+    i{
+        width: 25px;
+    }
+    .icon-heart{
+        width: 25px;
+    }
 }

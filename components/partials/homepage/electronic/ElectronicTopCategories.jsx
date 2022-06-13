@@ -19,8 +19,8 @@ function ElectronicTopCategories({ category }) {
                         {category?.map((c) => {
                             return (
                                 <a href={`/category/${c.slug}-${c.id}`} className="category__content">
+                                    <img className='category__img_' src={`${c.imageUrl}`} alt="" />
                                     <p className='category__text'>{c.name}</p>
-                                    <img src="/images/three.svg" alt="" />
                                 </a>
                             );
                         })}

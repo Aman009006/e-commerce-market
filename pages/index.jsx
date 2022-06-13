@@ -18,15 +18,17 @@ const HomeElectronicsPage = () => {
 
     useEffect(() => {
         const headers = {
-            'api-token': 'f1cdecbeba8f4a1547d3dc0db9376fec',
+            'api-token': config.apiToken
         };
 
         axios
-            .get('https://docs.stores.kg/api/categories', {
+            .get(`${config.mainUrl}main/page`, {
                 headers: headers,
             })
             .then((response) => {
-                setCategor(response.data['hydra:member']);
+                console.log(response.data["hydra:member"]);
+                setCategor(response.data["hydra:member"][1].data);
+                setCards(response.data["hydra:member"][2].data)
             })
             .catch((error) => {
                 console.log(error);
@@ -52,19 +54,6 @@ const HomeElectronicsPage = () => {
             'api-token': config.apiToken
         };
 
-        axios
-            .get(
-                `${config.mainUrl}products?page=1&itemsPerPage=30&category=68`,
-                {
-                    headers: headers
-                }
-            )
-            .then((response) => {
-                setCards(response.data['hydra:member']);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
 
         axios
             .get(
@@ -120,7 +109,7 @@ const HomeElectronicsPage = () => {
                 /> */}
                 <ElectronicProductGroupWithCarousel
                     collectionSlug="electronics-best-sellers"
-                    title="Бытовая техника"
+                    title="Хиты продаж"
                     links={cards}
                 />
                 <ElectronicPromotions2 />

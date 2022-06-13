@@ -84,7 +84,7 @@ const ShopDefaultPage = () => {
                                     href={`/category/${c.slug}${c.id}`}
                                     className="category__content">
                                     <p className="category__text">{c.name}</p>
-                                    <img src="/images/three.svg" alt="" />
+                                    <img className='category__img_' src={`${c.imageUrl}`} alt="" />
                                 </a>
                             );
                         })}

@@ -7,11 +7,10 @@ import axios from 'axios';
 import ModalAuth from '~/components/shared/headers/modules/ModalAuth';
 import { config } from '~/config';
 
-
 const ModuleProductActions = ({ product, ecomerce }) => {
     const [isQuickView, setIsQuickView] = useState(false);
     const { addItem } = useEcomerce();
-    const [show,setShow]=useState(false)
+    const [show, setShow] = useState(false);
 
     function handleAddItemToCart(e) {
         e.preventDefault();
@@ -50,21 +49,20 @@ const ModuleProductActions = ({ product, ecomerce }) => {
         setIsQuickView(false);
     };
 
-
     function sendToFavorites() {
-        let authToken = localStorage.getItem('authToken')
-        if(authToken === null){
-            setShow(true)
+        let authToken = localStorage.getItem('authToken');
+        if (authToken === null) {
+            setShow(true);
         }
         const options = {
             url: `${config.mainUrl}wish_list`,
             method: 'POST',
             headers: {
                 'api-token': config.apiToken,
-                'user-token': authToken
+                'user-token': authToken,
             },
             data: {
-                "productId": product.id,
+                productId: product.id,
             },
         };
 
@@ -77,20 +75,20 @@ const ModuleProductActions = ({ product, ecomerce }) => {
             });
     }
     function sendToBasket() {
-        let authToken = localStorage.getItem('authToken')
-        if(authToken === null){
-            setShow(true)
+        let authToken = localStorage.getItem('authToken');
+        if (authToken === null) {
+            setShow(true);
         }
         const options = {
             url: `${config.mainUrl}cart`,
             method: 'POST',
             headers: {
                 'api-token': config.apiToken,
-                'user-token': authToken
+                'user-token': authToken,
             },
             data: {
-                "productId": product.id,
-                "count": 1
+                productId: product.id,
+                count: 1,
             },
         };
 
@@ -105,14 +103,15 @@ const ModuleProductActions = ({ product, ecomerce }) => {
 
     return (
         <ul className="ps-product__actions">
-        <ModalAuth show={show} setShow={setShow}/>
+            <ModalAuth show={show} setShow={setShow} />
             <li>
                 <a
+                    className="prod__icon"
                     href="#"
                     data-toggle="tooltip"
                     data-placement="top"
                     title="Добавить в корзину"
-                    onClick={()=>sendToBasket()}>
+                    onClick={() => sendToBasket()}>
                     <i className="icon-bag2"></i>
                 </a>
             </li>
@@ -128,6 +127,7 @@ const ModuleProductActions = ({ product, ecomerce }) => {
             </li> */}
             <li>
                 <a
+                    className="prod__icon"
                     href="#"
                     title="Добавить в избранные"
                     onClick={() => sendToFavorites()}>
