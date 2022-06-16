@@ -4,7 +4,8 @@ import NextArrow from '~/components/elements/carousel/NextArrow';
 import PrevArrow from '~/components/elements/carousel/PrevArrow';
 
 
-const ShopBanner =()=>  {
+const ShopBanner =({urlImg})=>  {
+    console.log(urlImg)
     const carouselSetting = {
         dots: false,
         arrows: true,
@@ -18,8 +19,9 @@ const ShopBanner =()=>  {
     return (
         <div className="ps-shop-banner">
             <Slider {...carouselSetting} fade={true} className="ps-carousel">
-                <img src="/static/img/slider/shop-default/1.jpg" alt="martfury" />
-                <img src="/static/img/slider/shop-default/2.jpg" alt="martfury" />
+                <img src={urlImg} alt="martfury" />
+                <img src={urlImg} alt="martfury" />
+                <img src={urlImg} alt="martfury" />
             </Slider>
         </div>
     );

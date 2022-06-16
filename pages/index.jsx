@@ -15,6 +15,10 @@ import ShopBanner from '~/components/partials/shop/ShopBanner';
 
 const HomeElectronicsPage = () => {
     const [category, setCategor] = useState();
+    const [firstBanner, setFirstBanner] = useState();
+    const [secondBanner, setSecondtBanner] = useState();
+
+
 
     useEffect(() => {
         const headers = {
@@ -29,6 +33,8 @@ const HomeElectronicsPage = () => {
                 setCategor(response.data["hydra:member"][1].data);
                 setCards(response.data["hydra:member"][2].data)
                 setElectronics(response.data["hydra:member"][5].data)
+                setFirstBanner(response.data["hydra:member"][3].url);
+                setSecondtBanner(response.data["hydra:member"][10].url)
             })
             .catch((error) => {
                 console.log(error);
@@ -84,7 +90,7 @@ const HomeElectronicsPage = () => {
         <PageContainer title="Technics.kg">
             <main id="homepage-7">
                 <div className="container mt-25 mb-25">
-                <ShopBanner />
+                <ShopBanner urlImg={firstBanner} />
                 </div>
                 <ElectronicTopCategories category={category} />
                 {/* <ProductGroupDealOfDay
@@ -96,7 +102,7 @@ const HomeElectronicsPage = () => {
                     title="Хиты продаж"
                     links={cards}
                 />
-                <ElectronicPromotions2 />
+                <ElectronicPromotions2 urlImg={secondBanner} />
                 <ElectronicProductGroupWithCarousel
                     collectionSlug="electronic_computer_technology"
                     title="Новинки"
