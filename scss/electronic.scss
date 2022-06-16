@@ -195,6 +195,7 @@ a {
 }
 .category__page {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     .category__img_main {
         width: 250px !important;

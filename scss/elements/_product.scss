@@ -24,8 +24,11 @@
     padding: 20px 20px 0;
     border: 1px solid transparent;
     border-bottom: none;
+    width: 248px;
     @extend %list-reset;
-
+.ps-product__title{
+    width: 235px;
+}
     .ant-rate {
         .ant-rate-star {
             i {
