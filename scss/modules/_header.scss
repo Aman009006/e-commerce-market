@@ -914,3 +914,29 @@ border-bottom: none;
 .mb-20{
     margin-bottom: 20px;
 }
+.mobile__cus_btn{
+    margin: 0 auto;
+    padding: 10px;
+    color: black !important;
+    border: 1px solid black;
+    font-size: 14px;
+    background: rgb(13, 248, 13);
+}
+.custom__btn_w{
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    padding: 10px;
+    a{
+        width: 100% !important; 
+    }
+}
+.buttonsProd{
+    display: flex;
+    align-items: center;
+}
+@media screen and (min-width:460px) {
+    .custom__btn_w{
+        display: none;
+    }
+}

@@ -140,6 +140,7 @@ const ModuleDetailShoppingActions = ({
             <div className="ps-product__shopping">
                 <figure>
                     <figcaption>Количество</figcaption>
+                    <div className='buttonsProd'>
                     <div className="form-group--number">
                         <button
                             className="up"
@@ -158,7 +159,18 @@ const ModuleDetailShoppingActions = ({
                             disabled
                         />
                     </div>
+                    <div className='custom__btn_w'>
+               <a
+                    className="mobile__cus_btn  "
+                    href={`https://wa.me/996509155155?text=Добрый%20день%20!%20я%20хотел%20заказать%20Techniks.kg${Router.asPath}`}
+                    target="_blank"
+                  >
+                    Купить по WhatsApp
+                </a>
+               </div>
+                    </div>
                 </figure>
+               
                 <div>
                 <a
                     className="ps-btn ps-btn--black custom__btn_"
@@ -217,6 +229,7 @@ const ModuleDetailShoppingActions = ({
                             />
                         </div>
                     </figure>
+                   
                     <a
                         className="ps-btn ps-btn--black"
                         href="#"
