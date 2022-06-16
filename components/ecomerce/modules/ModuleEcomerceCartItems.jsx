@@ -16,24 +16,27 @@ const ModuleEcomerceCartItems = ({ ecomerce, cartItems }) => {
     }, [cartItems]);
     const [myProducts, setMyProducts] = useState()
 
-    function handleRemoveItem(e, productId) {
+
+    function handleRemoveItem( item ) {
         
         let authToken = localStorage.getItem('authToken')
         if(authToken === null){
             setShow(true)
         }
         const options = {
-            url: `${config.mainUrl}cart'`,
+            url: `${config.mainUrl}cart`,
             method: 'POST',
             headers: {
                 'api-token': config.apiToken,
                 'user-token': authToken
             },
             data: {
-                "productId": productId,
+                "productId": item.product.id,
                 "count": 0
             },
         };
+        console.log(item.product.id);
+
 
         axios(options)
             .then((response) => {
@@ -56,51 +59,72 @@ const ModuleEcomerceCartItems = ({ ecomerce, cartItems }) => {
         decreaseQty({ id: productId }, ecomerce.cartItems);
     }
     
-    function plusCount(index){
-        setMyProducts(myProducts?.map(
-            (item , i) => {
-                if(i === index){
-                    return {
-                        ...item,
-                        product: {
-                            ...item.product,
-                            count: item.product.count + 1
-                        }
-                    }
-                }
-                else{
-                    return item;
-                }
-            }
-        ))
+    function plusCount(item){
+        let count = item?.product.count + 1
+
+        let authToken = localStorage.getItem('authToken')
+        if(authToken === null){
+            setShow(true)
+        }
+        const options = {
+            url: `${config.mainUrl}cart`,
+            method: 'POST',
+            headers: {
+                'api-token': config.apiToken,
+                'user-token': authToken
+            },
+            data: {
+                "productId": item.product.id,
+                "count": count
+            },
+        };
+
+        axios(options)
+            .then((response) => {
+                console.log(response.status);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+        //     // location.reload()
         
     }
-    function minusCount(index){
-        setMyProducts(myProducts?.map(
-            (item , i) => {
-                if(i === index && item.product.count>1){
-                    return {
-                        ...item,
-                        product: {
-                            ...item.product,
-                            count: item.product.count - 1
-                        }
-                    }
-                }
-                else{
-                    return item;
-                }
-            }
-        ))
-    }
+    function minusCount(item){
+        let count = item?.product.count - 1
 
+        let authToken = localStorage.getItem('authToken')
+        if(authToken === null){
+            setShow(true)
+        }
+        const options = {
+            url: `${config.mainUrl}cart`,
+            method: 'POST',
+            headers: {
+                'api-token': config.apiToken,
+                'user-token': authToken
+            },
+            data: {
+                "productId": item.product.id,
+                "count": count
+            },
+        };
+
+        axios(options)
+            .then((response) => {
+                console.log(response.status);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+        //     // location.reload()
+    }
+    
     // View
     let cartItemsViews;
     if (myProducts && myProducts.length > 0) {
         const items = myProducts?.map((item, index) => {
-            // let countQua = item.product.price
-            // const product = item;
-            // console.log(product?.count);
+        // setCountPr(item?.product.count)
+
             return(
             <tr key={item?.id}>
                 <td>
@@ -110,15 +134,17 @@ const ModuleEcomerceCartItems = ({ ecomerce, cartItems }) => {
                     {item?.product.price} сом
                 </td>
                 <td data-label="Количество">
-                    <div className="form-group--number">
-                    {item?.product.count}
+                    <div className="form-group--number count__sort">
+                        <div className="btn__cort_" onClick={()=>plusCount(item)}>+</div>
+                             {item?.product.count}
+                        <div className="btn__cort_" onClick={()=>minusCount(item)}>-</div>
                     </div>
                 </td>
                 <td data-label="Итого">
                     <strong>{(item?.product.price * item?.product.count)} сом</strong>
                 </td>
                 <td>
-                    <a href="#" onClick={(e) => handleRemoveItem(e, item?.product.id)}>
+                    <a href="#" onClick={(e) => handleRemoveItem(item)}>
                         <i className="icon-cross"></i>
                     </a>
                 </td>

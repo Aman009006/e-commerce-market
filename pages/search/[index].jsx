@@ -108,10 +108,10 @@ const SearchPage = () => {
                             </h1>
                         </div>
                         <div className="alotprice">
-                            от: <input id="input__before" onChange={(e)=> setFromPrice(e.target.value)} type="number" /> до:{' '}
-                            <input onChange={(e)=> setToPrice(e.target.value)} id="input__after" type="number" />{' '}
+                            <div>от: <input id="input__before" onChange={(e)=> setFromPrice(e.target.value)} type="number" /></div> <div>до:{' '}
+                            <input onChange={(e)=> setToPrice(e.target.value)} id="input__after" type="number" />{' '}</div>
                             <button onClick={() => setPrimTo(!primTo)}>
-                                применить
+                                Применить
                             </button>
                         </div>
                         <div className="ps-shop__content">

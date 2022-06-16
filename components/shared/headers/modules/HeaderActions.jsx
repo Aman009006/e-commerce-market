@@ -63,8 +63,8 @@ const HeaderActions = ({ ecomerce, auth }) => {
             </a>
             <MiniCart />
             <a className="logo__user" >
-                <img className="icon__login" src="/images/user.png" alt="" />
-                <p className="p__user">{userLogin ? <div><div>{userLogin}</div> <div onClick={()=>logOut()}>выйти</div></div> : <div onClick={handleShow}>Войти</div>}</p>
+                <img  className="icon__login" src="/images/user.png" alt="" />
+                <p className="p__user">{userLogin ? <div><a className='acc__number' href='/account/accPage'>{userLogin}</a> <div onClick={()=>logOut()}>выйти</div></div> : <div onClick={handleShow}>Войти</div>}</p>
             </a>
         </div>
             <ModalAuth show={show} setShow={setShow} />

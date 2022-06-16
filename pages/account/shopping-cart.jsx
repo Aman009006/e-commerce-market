@@ -36,17 +36,23 @@ const ShoppingCartScreen = ({ ecomerce }) => {
             })
             .then((response) => {
                 setProducts(response?.data['hydra:member']);
-                setTotalProductsPrice(
-                    response?.data['hydra:member'].reduce(
-                        (count, product) => count + product.product.price,
-                        0
-                    )
-                );
+               
             })
             .catch((error) => {
                 console.log(error);
             });
     }, [products]);
+
+    useEffect(()=>{
+        setTotalProductsPrice(
+            products?.reduce(
+                (count, product) => count + product.product.count * product.product.price,
+                0
+            )
+        );
+    },[products])
+    // console.log(products);
+
 
     useEffect(() => {
         if (ecomerce.cartItems) {

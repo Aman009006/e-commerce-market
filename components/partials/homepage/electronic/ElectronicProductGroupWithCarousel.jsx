@@ -39,10 +39,9 @@ const ElectronicProductGroupWithCarousel = ({
 
   
 
-
     // Views
     let productItemsView, linksView;
-    if (!loading) {
+    if (links && links.length > 0) {
         if (links && links.length > 0) {
             const slideItems = links.map((item) => (
                 <Product product={item} key={item.id} />

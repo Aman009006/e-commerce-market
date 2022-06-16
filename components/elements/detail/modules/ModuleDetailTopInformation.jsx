@@ -5,6 +5,7 @@ import Rating from '~/components/elements/Rating';
 const ModuleDetailTopInformation = ({ product }) => {
     // Views
     let priceView;
+    console.log(product);
 
     if (product.is_sale) {
         priceView = (

@@ -91,6 +91,11 @@ const ModuleDetailShoppingActions = ({
                 console.log(err);
             });
     }
+
+    function buyWithWhats(){
+        
+    }
+
     function sendToBasket() {
         let authToken = localStorage.getItem('authToken')
         if(authToken === null){
@@ -129,6 +134,7 @@ const ModuleDetailShoppingActions = ({
             setQuantity(quantity - 1);
         }
     }
+    console.log(Router);
     if (!extended) {
         return (
             <div className="ps-product__shopping">
@@ -153,19 +159,36 @@ const ModuleDetailShoppingActions = ({
                         />
                     </div>
                 </figure>
+                <div>
                 <a
-                    className="ps-btn ps-btn--black"
+                    className="ps-btn ps-btn--black custom__btn_"
                     href="#"
                     onClick={() => sendToBasket()}>
                     Добавить в корзину
                 </a>
+
+                </div>
+                <div>
+
+                
+                        </div>
                <ModalAuth show={show} setShow={setShow}/>
                 <div className="ps-product__actions">
-                    <a href="#" onClick={(e) => handleAddItemToWishlist(e)}>
-                        <i className="icon-heart"></i>
-                    </a>
+                    <a
+                    className="ps-btn ps-btn--black custom__btn_"
+                    href="#"
+                    onClick={(e) => handleAddItemToWishlist(e)}>
+                    Добавить в избранные
+                </a>
                     
                 </div>
+                <a
+                    className="ps-btn ps-btn--black custom__btn_ whatsApp"
+                    href={`https://wa.me/996509155155?text=Добрый%20день%20!%20я%20хотел%20заказать%20Techniks.kg${Router.asPath}`}
+                    target="_blank"
+                  >
+                    Купить по WhatsApp
+                </a>
             </div>
         );
     } else {

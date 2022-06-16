@@ -2346,9 +2346,10 @@
 }
 .prod__icon{
     i{
-        width: 25px;
-    }
-    .icon-heart{
-        width: 25px;
+        font-size: 18px;
+display: flex;
+align-items: center;
+justify-content: center;
+        line-height: 18px;
     }
 }

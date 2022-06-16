@@ -143,3 +143,48 @@
         }
     }
 }
+.custom__btn_{
+    max-width: 300px;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px !important;
+    font-weight: 500;
+}
+.ps-product__shopping{
+    display: block !important;
+}
+.whatsApp{
+    background: green;
+}
+.alotprice{
+    font-size: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    input{
+        border-radius: 15px;
+        padding: 5px;
+        margin-top: 10px;
+    }
+    input:first-child{
+        margin-right: 10px;
+    }
+    button{
+        margin-top: 10px;
+        background: #4bc3e8;
+        border-radius: 15px;
+        margin-left: 20px;
+        padding: 5px 20px;
+    }
+}
+
+// .header__center{
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+// }
+// .form-control{
+//     min-width: 220px !important ;
+//     max-width: 800px !important;
+//     width: 100% !important;
+// }

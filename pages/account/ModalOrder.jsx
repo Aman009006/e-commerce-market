@@ -100,12 +100,6 @@ function ModalOrder({ show, setShow }) {
                             {errorPost&&<div className='error__modal_valid'>Заполните данные коректно</div>}
                             <button
                                 className="btn__modal"
-                                variant="secondary"
-                                onClick={handleClose}>
-                                Закрыть
-                            </button>
-                            <button
-                                className="btn__modal"
                                 variant="primary"
                                 onClick={() => pushOrder()}>
                                 Заказать

@@ -5,7 +5,7 @@ import axios from 'axios';
 const PartialSpecification = ({ product }) => {
 
     const [comments, setComments] = useState();
-    const [inputValueComm, setInputValueComm] = useState();
+    const [inputValueComm, setInputValueComm] = useState("");
 
 
 
@@ -23,21 +23,20 @@ const PartialSpecification = ({ product }) => {
             )
             .then((response) => {
                 setComments(response?.data['hydra:member']);
-                console.log(response?.data['hydra:member']);
             })
             .catch((error) => {
                 console.log(error);
             });
-    }, []);
+    }, [comments]);
 
     function sendComment(){
+        
         let authToken = localStorage.getItem('authToken')
         // if(authToken === null){
         //     setShow(true)
         // }
-        console.log(product.id);
         const options = {
-            url: `${config.mainUrl}review'`,
+            url: `${config.mainUrl}review`,
             method: 'POST',
             headers: {
                 'api-token': config.apiToken,
@@ -46,23 +45,23 @@ const PartialSpecification = ({ product }) => {
             data: {
                     "productId": Number(product.id),
                     "parentReviewId": 0,
-                    "comment": "Класс Удобно",
+                    "comment": inputValueComm,
                     "positiveComment": "Очень удобно в использовании",
                     "negativeComment": "Дорогой товар",
                     "rating": 5
             },
         };
 
+        setInputValueComm("")
+
         axios(options)
             .then((response) => {
                 console.log(response.status);
-            })
+    })
             .catch((err) => {
                 console.log(err);
             });
-
     }
-    console.log(comments);
 
     return (
         <div className="comment__content">
@@ -90,7 +89,7 @@ const PartialSpecification = ({ product }) => {
                 )}
             </div>
             <div className="comment__sender">
-                <input placeholder='Оставь отзыв здесь' onChange={(e)=>setInputValueComm(e.target.value)} type="text" />
+                <input placeholder='Оставь отзыв здесь' value={inputValueComm} onChange={(e)=>setInputValueComm(e.target.value)} type="text" />
                 <button onClick={()=>sendComment()}>Отправить</button>
             </div>
         </div>

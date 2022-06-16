@@ -10,7 +10,7 @@ import ModuleDetailTopInformation from '~/components/elements/detail/modules/Mod
 import ElectronicProductGroupWithCarousel from '~/components/partials/homepage/electronic/ElectronicProductGroupWithCarousel';
 
 const ProductDetailFullwidth = ({ product }) => {
-    console.log(product.similarProducts);
+    console.log(product,"privet");
     return (
         <div className="ps-product--detail ps-product--fullwidth">
             <div className="ps-product__header">

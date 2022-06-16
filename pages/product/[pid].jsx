@@ -23,6 +23,28 @@ const ProductDefaultPage = () => {
     const [loading, setLoading] = useState(false);
 
 
+    
+    const { asPath, pathname } = useRouter();
+    const urlFor = config.mainUrl.substring(0, config.mainUrl.length - 1)
+    
+    useEffect(() => {
+        const headers = {
+            'api-token' : config.apiToken
+          }
+          
+          axios.get( `${urlFor}${asPath}`, {
+              headers: headers
+            })
+            .then((response) => {
+                setCards(response.data)
+                console.log(response.data,"login");
+                setProduct(response.data)
+            })
+            .catch((error) => {
+             console.log(error);
+            })
+       }, [asPath]);
+    //    console.log(cards); 
 
     async function getProduct(pid) {
         setLoading(true);
@@ -43,6 +65,7 @@ const ProductDefaultPage = () => {
     }, [pid]);
     const [cards,setCards]=useState()
 
+  
 
     const breadCrumb = [
         {
@@ -61,10 +84,10 @@ const ProductDefaultPage = () => {
     let productView, headerView;
     if (!loading) {
         if (product) {
-            productView = <ProductDetailFullwidth product={product} />;
+            productView = <ProductDetailFullwidth product={cards} />;
             headerView = (
                 <>
-                    <HeaderProduct product={product} />
+                    <HeaderProduct product={cards} />
                     <HeaderMobileProduct />
                 </>
             );
@@ -81,27 +104,6 @@ const ProductDefaultPage = () => {
     }
 
 
-    
-    const { asPath, pathname } = useRouter();
-    const urlFor = config.mainUrl.substring(0, config.mainUrl.length - 1)
-    
-    useEffect(() => {
-        const headers = {
-            'api-token' : config.apiToken
-          }
-          
-          axios.get( `${urlFor}${asPath}`, {
-              headers: headers
-            })
-            .then((response) => {
-                setCards(response.data)
-                setProduct(response.data)
-            })
-            .catch((error) => {
-             console.log(error);
-            })
-       }, [asPath]);
-    //    console.log(cards); 
 
     return (
         <PageContainer

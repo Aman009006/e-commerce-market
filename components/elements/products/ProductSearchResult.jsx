@@ -15,10 +15,6 @@ const ProductSearchResult = ({ product }) => {
             </div>
             <div className="ps-product__content">
                 {title(product)}
-                <div className="ps-product__rating">
-                    <Rating />
-                    <span>{product.ratingCount}</span>
-                </div>
                 {price(product)}
             </div>
         </div>

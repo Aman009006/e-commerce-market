@@ -26,9 +26,9 @@ const HomeElectronicsPage = () => {
                 headers: headers,
             })
             .then((response) => {
-                console.log(response.data["hydra:member"]);
                 setCategor(response.data["hydra:member"][1].data);
                 setCards(response.data["hydra:member"][2].data)
+                setElectronics(response.data["hydra:member"][5].data)
             })
             .catch((error) => {
                 console.log(error);
@@ -53,21 +53,6 @@ const HomeElectronicsPage = () => {
         const headers = {
             'api-token': config.apiToken
         };
-
-
-        axios
-            .get(
-                `${config.mainUrl}products?page=1&itemsPerPage=30&category=1`,
-                {
-                    headers: headers
-                }
-            )
-            .then((response) => {
-                setElectronics(response.data['hydra:member']);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
         axios
             .get(
                 `${config.mainUrl}products?page=1&itemsPerPage=30&category=112`,
@@ -95,7 +80,6 @@ const HomeElectronicsPage = () => {
                 console.log(error);
             });
     }, []);
-   
     return (
         <PageContainer title="Technics.kg">
             <main id="homepage-7">
@@ -115,7 +99,7 @@ const HomeElectronicsPage = () => {
                 <ElectronicPromotions2 />
                 <ElectronicProductGroupWithCarousel
                     collectionSlug="electronic_computer_technology"
-                    title="Электроника"
+                    title="Новинки"
                     links={electronic}
                 />
                 <ElectronicProductGroupWithCarousel

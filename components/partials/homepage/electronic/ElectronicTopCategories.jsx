@@ -7,7 +7,6 @@ import Accordion from 'react-bootstrap/Accordion';
 //         super(props);
 //     }
 function ElectronicTopCategories({ category }) {
-    console.log(category);
 
     const [showC, setShowC] = useState(false);
     return (

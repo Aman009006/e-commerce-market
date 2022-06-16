@@ -22,10 +22,10 @@ const HeaderDefault = () => {
                 <div className="ps-container">
                    <div className="header__leftt">
                         <Logo />
+                    <MenuCategoriesDropdown/>
                     </div>
                     <div className="header__center">
                         <SearchHeader />
-                    
                     </div>
                     <div className="header__right">
                         <HeaderActions />

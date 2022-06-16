@@ -112,12 +112,6 @@ const ModalAuth = ({ show, setShow }) => {
                             </div>{' '}
                             <button
                                 className="btn__modal"
-                                variant="secondary"
-                                onClick={handleClose}>
-                                Закрыть
-                            </button>
-                            <button
-                                className="btn__modal"
                                 variant="primary"
                                 onClick={() => sendSmsForAuth()}>
                                 Отправить
