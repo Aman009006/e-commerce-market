@@ -49,7 +49,7 @@ function accPage(){
             .catch((error) => {
                 console.log(error);
             });
-    }, [products]);
+    }, [order]);
 
     // console.log(order);
     let cartItemsViews;

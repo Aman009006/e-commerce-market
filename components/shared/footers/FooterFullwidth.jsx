@@ -15,6 +15,7 @@ const FooterFullwidth = () => (
             <div className="only">
             <a href="/aboutus">О нас</a>
             <a href="/publicoff"> Публичная оферта</a>
+            <a href="https://2gis.kg/bishkek/firm/70000001062065075?m=74.644652%2C42.878616%2F16"  target="_blank">Адрес: Фрунзе 54</a>
             </div>
           </div>
           <div className="footer__desck">
@@ -22,37 +23,37 @@ const FooterFullwidth = () => (
             <a href="#" className="footer__desck-p">
               <div className="df">
                 <img src="/images/icons/phone.svg" />{" "}
-                <a href="tel:+996 500 123 456">+996 500 123 456</a>
+                <a href="tel:+996553413333">0553 413 333</a>
               </div>
             </a>
             <a href="#" className="footer__desck-p">
               <div className="df">
                 <img src="/images/icons/phone.svg" />
-                <a href="tel:+996 500 123 456">+996 500 123 456</a>
+                <a href="tel:+996704443333">0704 443 333</a>
               </div>
             </a>
-            <a href="https://mail.ru/" target="_blank" className="footer__desck-p">
+            <a href="mailto:technikskg@gmail.com" target="_blank" className="footer__desck-p">
               <div className="df">
                 <img src="/images/icons/mail.svg" />
-                <span>mail@gmail.com</span>
+                <span>technicskg@gmail.com</span>
               </div>
             </a>
           </div>
           <div className="footer__desck">
             <p className="footer__title-p">Мы в социальных сетях:</p>
-            <a href="https://www.instagram.com/" target="_blank" className="footer__desck-p">
+            <a href="https://www.instagram.com/technicskg" target="_blank" className="footer__desck-p">
               <div className="dff">
                 <img src="/images/icons/insta.svg" />
                 <span>Instagram</span>
               </div>
             </a>
-            <a href="https://web.telegram.org/k/" target="_blank" className="footer__desck-p">
+            <a href="#" target="_blank" className="footer__desck-p">
               <div className="dff">
                 <img src="/images/icons/telegram.png" />
                 <span>Telegram</span>
               </div>
             </a>
-            <a href="https://web.whatsapp.com/" target="_blank" className="footer__desck-p">
+            <a href="https://wa.me/996553413333/" target="_blank" className="footer__desck-p">
               <div className="dff">
                 <img src="/images/icons/whats.png" />
                 <span>Whatsapp</span>
