@@ -59,6 +59,20 @@ const ShopDefaultPage = () => {
             console.log(error);
         });
     }, [category,countCard]);
+    const [secondBanner, setSecondtBanner] = useState();
+   
+
+    axios
+        .get(`${config.mainUrl}main/page`, {
+            headers: headers,
+        })
+        .then((response) => {
+       
+            setSecondtBanner(response.data["hydra:member"][10].url)
+        })
+        .catch((error) => {
+            console.log(error);
+        });
 
     const breadCrumb = [
         {
@@ -75,7 +89,7 @@ const ShopDefaultPage = () => {
             <div className="ps-page--shop">
                 <BreadCrumb breacrumb={breadCrumb} layout="fullwidth" />
                 <div className="ps-container">
-                    {/* <ShopBanner /> */}
+                    <ShopBanner urlImg={secondBanner} />
                     {/* <ShopBrands /> */}
                     <div className="acc__content categoty__page">
                         {podProd?.map((c) => {
