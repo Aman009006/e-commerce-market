@@ -52,7 +52,7 @@
 .acc__content {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: start;
 }
 .ps-top-categories {
     margin-bottom: 25px;
@@ -195,7 +195,7 @@ a {
 }
 .category__page {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     flex-wrap: wrap;
     .category__img_main {
         width: 250px !important;
@@ -203,6 +203,16 @@ a {
     .ps-product__content {
         width: 250px;
     }
+}
+@media screen and (max-width:900px){
+.category__page{
+    display: flex;
+    justify-content: center;
+}
+.acc__content{
+    display: flex;
+    justify-content: center; 
+}
 }
 .categories__title {
     margin-bottom: 20px;
