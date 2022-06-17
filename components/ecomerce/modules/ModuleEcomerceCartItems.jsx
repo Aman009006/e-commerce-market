@@ -135,9 +135,9 @@ const ModuleEcomerceCartItems = ({ ecomerce, cartItems }) => {
                 </td>
                 <td data-label="Количество">
                     <div className="form-group--number count__sort">
-                        <div className="btn__cort_" onClick={()=>plusCount(item)}>+</div>
-                             {item?.product.count}
                         <div className="btn__cort_" onClick={()=>minusCount(item)}>-</div>
+                             {item?.product.count}
+                        <div className="btn__cort_" onClick={()=>plusCount(item)}>+</div>
                     </div>
                 </td>
                 <td data-label="Итого">
@@ -159,7 +159,7 @@ const ModuleEcomerceCartItems = ({ ecomerce, cartItems }) => {
                             <th>Название</th>
                             <th>Цена</th>
                             <th>Количество</th>
-                            <th>Тотал</th>
+                            <th>Итого</th>
                             <th></th>
                         </tr>
                     </thead>
